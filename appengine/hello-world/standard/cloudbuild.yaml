@@ -1,6 +1,11 @@
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
+  dir: appengine/hello-world/standard
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['test']
+  dir: appengine/hello-world/standard
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
+  dir: appengine/hello-world/standard
 timeout: "1600s"
